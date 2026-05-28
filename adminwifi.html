@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THUBALESHA WIFI ADMIN DASHBOARD</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+background:#f3f4f6;
+min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:260px;
+background:#111827;
+color:white;
+padding:20px;
+position:fixed;
+height:100%;
+overflow:auto;
+}
+
+.sidebar h2{
+margin-bottom:30px;
+font-size:28px;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+margin-bottom:10px;
+background:#1f2937;
+border-radius:12px;
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:#2563eb;
+}
+
+/* MAIN */
+
+.main{
+margin-left:260px;
+padding:30px;
+width:100%;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.topbar h1{
+font-size:32px;
+}
+
+.logout{
+padding:12px 20px;
+background:#dc2626;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-bottom:40px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card h3{
+font-size:18px;
+margin-bottom:15px;
+color:#555;
+}
+
+.card p{
+font-size:35px;
+font-weight:bold;
+color:#2563eb;
+}
+
+/* TABLE */
+
+.table-box{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+margin-bottom:40px;
+overflow:auto;
+}
+
+.table-box h2{
+margin-bottom:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th,
+table td{
+padding:15px;
+border-bottom:1px solid #ddd;
+text-align:left;
+}
+
+table th{
+background:#2563eb;
+color:white;
+}
+
+/* FORM */
+
+.form-box{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-box h2{
+margin-bottom:20px;
+}
+
+.input{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:16px;
+}
+
+.btn{
+padding:15px 25px;
+border:none;
+background:#2563eb;
+color:white;
+font-size:16px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#1d4ed8;
+}
+
+/* STATUS */
+
+.active{
+color:green;
+font-weight:bold;
+}
+
+.expired{
+color:red;
+font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.sidebar{
+width:100%;
+height:auto;
+position:relative;
+}
+
+.main{
+margin-left:0;
+}
+
+body{
+flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>THUBALESHA WIFI</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Vouchers</a>
+<a href="#">Customers</a>
+<a href="#">Payments</a>
+<a href="#">Reports</a>
+<a href="#">Settings</a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<div class="topbar">
+
+<h1>Admin Dashboard</h1>
+
+<button class="logout">
+Logout
+</button>
+
+</div>
+
+<!-- STATS -->
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Customers</h3>
+<p id="customers">24</p>
+</div>
+
+<div class="card">
+<h3>Active Vouchers</h3>
+<p id="activeVouchers">18</p>
+</div>
+
+<div class="card">
+<h3>Monthly Revenue</h3>
+<p>R5,400</p>
+</div>
+
+<div class="card">
+<h3>Internet Usage</h3>
+<p>1.2TB</p>
+</div>
+
+</div>
+
+<!-- VOUCHER TABLE -->
+
+<div class="table-box">
+
+<h2>Voucher List</h2>
+
+<table id="voucherTable">
+
+<thead>
+
+<tr>
+<th>Username</th>
+<th>Password</th>
+<th>Package</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>wifi001</td>
+<td>12345</td>
+<td>Daily</td>
+<td class="active">Active</td>
+<td><button class="btn">Delete</button></td>
+</tr>
+
+<tr>
+<td>wifi002</td>
+<td>45678</td>
+<td>Weekly</td>
+<td class="expired">Expired</td>
+<td><button class="btn">Delete</button></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- CREATE VOUCHER -->
+
+<div class="form-box">
+
+<h2>Create Voucher</h2>
+
+<input type="text" id="username" class="input" placeholder="Voucher Username">
+
+<input type="password" id="password" class="input" placeholder="Voucher Password">
+
+<select id="package" class="input">
+
+<option value="1 Hour">1 Hour - R5</option>
+<option value="Daily">Daily - R15</option>
+<option value="Weekly">Weekly - R80</option>
+<option value="Monthly">Monthly - R250</option>
+
+</select>
+
+<button class="btn" onclick="createVoucher()">
+Generate Voucher
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* LOGIN SECURITY */
+
+const adminPassword = "Thubalesha@1";
+
+let password = prompt("Enter Admin Password");
+
+if(password !== adminPassword){
+
+alert("Access Denied");
+
+document.body.innerHTML = "";
+
+}
+
+/* CREATE VOUCHER */
+
+function createVoucher(){
+
+let username = document.getElementById("username").value;
+
+let password = document.getElementById("password").value;
+
+let packageType = document.getElementById("package").value;
+
+if(username === "" || password === ""){
+
+alert("Please fill all fields");
+
+return;
+
+}
+
+let table = document.querySelector("#voucherTable tbody");
+
+let row = document.createElement("tr");
+
+row.innerHTML = `
+
+<td>${username}</td>
+<td>${password}</td>
+<td>${packageType}</td>
+<td class="active">Active</td>
+<td><button class="btn deleteBtn">Delete</button></td>
+
+`;
+
+table.appendChild(row);
+
+updateStats();
+
+document.getElementById("username").value = "";
+document.getElementById("password").value = "";
+
+}
+
+/* DELETE VOUCHER */
+
+document.addEventListener("click",function(e){
+
+if(e.target.classList.contains("deleteBtn") || e.target.innerText === "Delete"){
+
+e.target.closest("tr").remove();
+
+updateStats();
+
+}
+
+});
+
+/* UPDATE STATS */
+
+function updateStats(){
+
+let total = document.querySelectorAll("#voucherTable tbody tr").length;
+
+document.getElementById("customers").innerText = total;
+
+document.getElementById("activeVouchers").innerText = total;
+
+}
+
+/* LOGOUT */
+
+document.querySelector(".logout").addEventListener("click",()=>{
+
+location.reload();
+
+});
+
+</script>
+
+</body>
+</html>
