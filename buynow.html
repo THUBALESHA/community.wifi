@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THUBALESHA COMMUNITY WIFI</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f3f4f6;margin:0}
+.hero{background:linear-gradient(135deg,#1d4ed8,#312e81);color:#fff;padding:60px 20px;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px}
+.card{background:#fff;padding:20px;border-radius:15px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.price{font-size:36px;color:#1d4ed8;font-weight:bold}
+.buy-btn,.btn{padding:12px 18px;border:none;border-radius:10px;cursor:pointer}
+.buy-btn{background:#1d4ed8;color:#fff;width:100%}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);justify-content:center;align-items:center}
+.modal-content{background:#fff;padding:25px;border-radius:15px;max-width:500px;width:90%}
+.input{width:100%;padding:12px;margin:8px 0;box-sizing:border-box}
+.option{border:1px solid #ddd;padding:12px;border-radius:8px;margin:8px 0;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>THUBALESHA COMMUNITY WIFI</h1>
+<p>Buy WiFi vouchers online</p>
+</div>
+
+<div class="cards">
+<div class="card"><h3>1 Hour</h3><div class="price">R5</div><button class="buy-btn" onclick="buyPackage('1 Hour',5)">Buy Now</button></div>
+<div class="card"><h3>Daily</h3><div class="price">R15</div><button class="buy-btn" onclick="buyPackage('Daily',15)">Buy Now</button></div>
+<div class="card"><h3>Weekly</h3><div class="price">R80</div><button class="buy-btn" onclick="buyPackage('Weekly',80)">Buy Now</button></div>
+<div class="card"><h3>Monthly</h3><div class="price">R250</div><button class="buy-btn" onclick="buyPackage('Monthly',250)">Buy Now</button></div>
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<h2>Purchase Voucher</h2>
+<p>Package: <span id="pkg"></span></p>
+<p>Amount: R<span id="amt"></span></p>
+
+<input class="input" id="name" placeholder="Full Name">
+<input class="input" id="phone" placeholder="WhatsApp Number">
+
+<h3>Payment Options</h3>
+
+<div class="option" onclick="selectMethod('Voucher Payment')">🎟️ Voucher Payment</div>
+<div class="option" onclick="selectMethod('Yoco Card')">💳 Yoco Card</div>
+<div class="option" onclick="selectMethod('EFT')">🏦 EFT</div>
+<div class="option" onclick="selectMethod('WhatsApp Order')">📱 WhatsApp Order</div>
+
+<div id="voucherArea" style="display:none">
+<input class="input" id="voucherCode" placeholder="Enter Voucher Code">
+<button class="buy-btn" onclick="redeemVoucher()">Redeem Voucher</button>
+</div>
+
+<br>
+<button class="btn" onclick="closeModal()">Close</button>
+</div>
+</div>
+
+<script>
+let pkg='', amt=0;
+
+function buyPackage(name,price){
+ pkg=name; amt=price;
+ document.getElementById('pkg').innerText=name;
+ document.getElementById('amt').innerText=price;
+ document.getElementById('modal').style.display='flex';
+}
+
+function closeModal(){
+ document.getElementById('modal').style.display='none';
+}
+
+function selectMethod(method){
+ if(method==='Voucher Payment'){
+   document.getElementById('voucherArea').style.display='block';
+ } else {
+   document.getElementById('voucherArea').style.display='none';
+   alert('Selected: '+method+'\nPackage: '+pkg+'\nAmount: R'+amt);
+ }
+}
+
+function redeemVoucher(){
+ const code=document.getElementById('voucherCode').value;
+ if(!code){
+   alert('Enter a voucher code.');
+   return;
+ }
+ alert('Voucher Code Submitted: '+code+'\nConnect Firebase validation later.');
+}
+</script>
+
+</body>
+</html>
