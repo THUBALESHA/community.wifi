@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>THUBALESHA COMMUNITY WIFI</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -19,8 +17,6 @@ body{
 background:#f3f4f6;
 color:#111827;
 }
-
-/* HERO */
 
 .hero{
 background:linear-gradient(135deg,#1d4ed8,#312e81);
@@ -41,7 +37,8 @@ align-items:center;
 justify-content:space-between;
 }
 
-.hero-text{
+.hero-text,
+.login-card{
 flex:1;
 min-width:300px;
 }
@@ -85,8 +82,6 @@ color:#1d4ed8;
 }
 
 .login-card{
-flex:1;
-min-width:300px;
 background:rgba(255,255,255,0.1);
 padding:30px;
 border-radius:25px;
@@ -117,8 +112,6 @@ border-radius:12px;
 cursor:pointer;
 }
 
-/* PACKAGES */
-
 .section{
 padding:70px 20px;
 }
@@ -144,7 +137,7 @@ background:white;
 padding:30px;
 border-radius:25px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
+transition:.3s;
 }
 
 .card:hover{
@@ -168,20 +161,19 @@ margin-bottom:10px;
 color:#555;
 }
 
-.card button{
+.buy-package{
+display:block;
 width:100%;
 padding:15px;
-border:none;
 background:#1d4ed8;
 color:white;
 font-size:16px;
 font-weight:bold;
 border-radius:12px;
-cursor:pointer;
 margin-top:20px;
+text-decoration:none;
+text-align:center;
 }
-
-/* FEATURES */
 
 .features{
 background:white;
@@ -203,8 +195,6 @@ border-radius:25px;
 margin-bottom:15px;
 font-size:24px;
 }
-
-/* COVERAGE */
 
 .coverage{
 background:linear-gradient(to right,#eef2ff,#dbeafe);
@@ -254,8 +244,6 @@ textarea{
 resize:none;
 }
 
-/* FOOTER */
-
 footer{
 background:black;
 color:white;
@@ -286,37 +274,24 @@ text-align:center;
 color:#6b7280;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
-
 .hero-text h1{
 font-size:38px;
 }
-
-.section-title h2{
-font-size:32px;
-}
-
+.section-title h2,
 .coverage-text h2{
 font-size:32px;
 }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-
 <section class="hero">
-
 <div class="container hero-flex">
 
 <div class="hero-text">
-
 <h1>THUBALESHA COMMUNITY WIFI</h1>
 
 <p>
@@ -325,49 +300,36 @@ homes, and small businesses.
 </p>
 
 <div class="btn-group">
-
 <a href="https://wa.me/27656911520" class="btn whatsapp">
 WhatsApp Orders
 </a>
 
-<button class="btn buy">
+<a href="buynow.html" class="btn buy">
 Buy Voucher
-</button>
-
+</a>
 </div>
-
 </div>
 
 <div class="login-card">
-
 <h2>Quick Access</h2>
 
 <input type="text" placeholder="Voucher Username" class="input">
-
 <input type="password" placeholder="Voucher Password" class="input">
 
 <button class="connect-btn">
 Connect Internet
 </button>
-
 </div>
 
 </div>
-
 </section>
 
-<!-- PACKAGES -->
-
 <section class="section">
-
 <div class="container">
 
 <div class="section-title">
-
 <h2>Internet Packages</h2>
-
 <p>Choose the best package for your needs.</p>
-
 </div>
 
 <div class="cards">
@@ -378,7 +340,7 @@ Connect Internet
 <p>Speed: 2 Mbps</p>
 <p>Unlimited Access</p>
 <p>Hotspot Login Included</p>
-<button>Buy Now</button>
+<a href="buynow.html" class="buy-package">Buy Now</a>
 </div>
 
 <div class="card">
@@ -387,7 +349,7 @@ Connect Internet
 <p>Speed: 3 Mbps</p>
 <p>Unlimited Access</p>
 <p>Hotspot Login Included</p>
-<button>Buy Now</button>
+<a href="buynow.html" class="buy-package">Buy Now</a>
 </div>
 
 <div class="card">
@@ -396,7 +358,7 @@ Connect Internet
 <p>Speed: 5 Mbps</p>
 <p>Unlimited Access</p>
 <p>Hotspot Login Included</p>
-<button>Buy Now</button>
+<a href="buynow.html" class="buy-package">Buy Now</a>
 </div>
 
 <div class="card">
@@ -405,117 +367,24 @@ Connect Internet
 <p>Speed: 10 Mbps</p>
 <p>Unlimited Access</p>
 <p>Hotspot Login Included</p>
-<button>Buy Now</button>
+<a href="buynow.html" class="buy-package">Buy Now</a>
 </div>
 
 </div>
-
 </div>
-
 </section>
-
-<!-- FEATURES -->
-
-<section class="section features">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Why Choose Us?</h2>
-
-</div>
-
-<div class="feature-grid">
-
-<div class="feature">
-<h3>Fast Internet</h3>
-<p>
-Reliable speeds for streaming, studying,
-gaming, and business.
-</p>
-</div>
-
-<div class="feature">
-<h3>Affordable Prices</h3>
-<p>
-Cheap hotspot vouchers for daily and monthly use.
-</p>
-</div>
-
-<div class="feature">
-<h3>Easy Payments</h3>
-<p>
-Pay using WhatsApp, EFT, cash, or card payments.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- COVERAGE -->
-
-<section class="section coverage">
-
-<div class="container coverage-flex">
-
-<div class="coverage-text">
-
-<h2>Coverage Areas</h2>
-
-<p>
-We provide reliable internet coverage for communities,
-homes, schools, and businesses.
-</p>
-
-<ul>
-<li>Township Hotspots</li>
-<li>Student Accommodation</li>
-<li>Local Businesses</li>
-<li>Outdoor WiFi Zones</li>
-</ul>
-
-</div>
-
-<div class="form-box">
-
-<h3>Request Installation</h3>
-
-<input type="text" placeholder="Full Name" class="input">
-
-<input type="tel" placeholder="Phone Number" class="input">
-
-<textarea rows="5" placeholder="Your Area / Message" class="input"></textarea>
-
-<button class="connect-btn">
-Submit Request
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
 
 <footer>
-
 <div class="container footer-grid">
 
 <div>
 <h3>THUBALESHA WIFI</h3>
-<p>
-Community internet solutions for affordable connectivity.
-</p>
+<p>Community internet solutions for affordable connectivity.</p>
 </div>
 
 <div>
 <h4>Contact</h4>
-<p>contact>016 989 1005
+<p>016 989 1005</p>
 <p>WhatsApp: +27 65 691 1520</p>
 <p>Email: thubalesha.gen@gmail.com</p>
 </div>
@@ -533,27 +402,12 @@ Community internet solutions for affordable connectivity.
 <div class="footer-bottom">
 © 2026 THUBALESHA COMMUNITY WIFI. All rights reserved.
 </div>
-
 </footer>
 
 <script>
-
-document.querySelectorAll(".card button").forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-alert("Voucher purchase system coming soon!");
-
-});
-
-});
-
 document.querySelector(".connect-btn").addEventListener("click",()=>{
-
 alert("Hotspot login system connected!");
-
 });
-
 </script>
 
 </body>
